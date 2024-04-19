@@ -6,10 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .table{
+        div.myGrid {
+            width: 270px;
             display: grid;
-            grid-template-columns: 20px 100px 100px 100px 100px;
-            grid-template-rows: repeat(5,10vw);
+            grid-template-columns: repeat(5, 60px);
+            grid-template-rows: repeat(5, 60px);
+        }
+
+        div.myGrid>div {
+            text-align: center;
+            font-size: 150%;
+        }
+
+        input {
+            font-size: 150%;
+            width: 60px;
         }
     </style>
 </head>
@@ -25,41 +36,23 @@
         */
 
         // model
-        const numbers = [
-            null, 2, null, null, 
-            null, null, 6, null, 
-            null, null, null, null, 
-            null, null, null, 16, 
-        ];
 
         // view
         updateView();
         function updateView() {
+            let html = '';
+            for (let i = 0; i < 25; i++) {
+                if (i < 5) { // kolonne overskrift
+                    html += `<div>${i}</div>`;
+                } else if (i == 5 || i == 10 || i == 15 || i == 20) { // rad overskrift
+                    html += `<div>${i}</div>`;
+                } else {
+                    html += '<input type="number"/>';
+                }
+            }
             document.getElementById('app').innerHTML = /*HTML*/`
-                <div class="table">
-                    <div>
-                        <div>&nbsp;</div>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                    </div>
-                    ${createRowHtml(1)}
-                    ${createRowHtml(2)}
-                    ${createRowHtml(3)}
-                    ${createRowHtml(4)}
-                </div>
-            `;
-        }
-
-        function createRowHtml(number){
-            return /*HTML*/`
-                <div>
-                    <div>${number}</div>
-                    <div><input type="number"/></div>
-                    <div><input type="number"/></div>
-                    <div><input type="number"/></div>
-                    <div><input type="number"/></div>
+                <div class="myGrid">
+                    ${html}                    
                 </div>
             `;
         }
