@@ -45,7 +45,7 @@
                 if (i < 5) { // kolonne overskrift
                     html += `<div>${i}</div>`;
                 } else if (i == 5 || i == 10 || i == 15 || i == 20) { // rad overskrift
-                    html += `<div>${i}</div>`;
+                    html += `<div>${i / 5}</div>`;
                 } else {
                     html += '<input type="number"/>';
                 }
