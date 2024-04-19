@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .table{
+            display: grid;
+            grid-template-columns: 20px 100px 100px 100px 100px;
+            grid-template-rows: repeat(5,10vw);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        /*
+          - Forenkle! (ikke programmering)
+          - MVC
+          - Lister
+          - Løkker
+        */
+
+        // model
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div class="table">
+                    <div></div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    ${createRowHtml(1)}
+                    ${createRowHtml(2)}
+                    ${createRowHtml(3)}
+                    ${createRowHtml(4)}
+                </div>
+            `;
+        }
+
+        function createRowHtml(number){
+            return /*HTML*/`
+                <div>${number}</div>
+                <div><input type="number"/></div>
+                <div><input type="number"/></div>
+                <div><input type="number"/></div>
+                <div><input type="number"/></div>
+            `;
+        }
+
+        // controller
+
+    </script>
+</body>
+
+</html>
